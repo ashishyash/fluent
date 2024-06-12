@@ -1,7 +1,13 @@
+import { Toolbar } from "@fluentui/react-components";
 const Footer = () => {
   return (
-    <div>footer</div>
+   <Toolbar size="small" className="footer">
+    @copyright text
+   </Toolbar>
   )
 }
 
-export default Footer
+export default Footer;
+
+
+//colorNeutralForeground3

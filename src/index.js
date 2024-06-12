@@ -1,14 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './assets/reset.scss';
+import './index.scss';
 import reportWebVitals from './reportWebVitals';
-import { FluentProvider, webLightTheme } from '@fluentui/react-components';
+import { FluentProvider , webDarkTheme} from '@fluentui/react-components';
 import { RouterProvider } from 'react-router-dom';
 import AppRouter from './common/appRouter';
 
+const customDarkTheme = {
+...webDarkTheme,
+fontFamilyBase: '"Roboto", sans-serif'
+}
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <FluentProvider theme={webLightTheme}>
+  <FluentProvider theme={customDarkTheme}>
     <RouterProvider router={AppRouter}/>
   </FluentProvider>
 );

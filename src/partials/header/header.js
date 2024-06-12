@@ -2,10 +2,12 @@ import { Toolbar } from "@fluentui/react-components";
 import { NavLink } from "react-router-dom";
 import { Avatar } from "@fluentui/react-components";
 import { PeopleTeamRegular } from "@fluentui/react-icons";
+import { Button } from '@fluentui/react-components';
+import './header.scss';
 const Header = () => {
     return (
-        <Toolbar appearance="primary">
-            <header>
+        <Toolbar >
+            <header className="app-header">
                 <div className="logo">
                     <Avatar
                         shape="square"
@@ -13,11 +15,15 @@ const Header = () => {
                         icon={<PeopleTeamRegular />}
                     />
                 </div>
-                <nav>
+                <nav className="navigation">
                     <ul>
-                        <li><NavLink to='/'>Home</NavLink></li>
-                        <li><NavLink to='/about'>About</NavLink></li>
-                        <li><NavLink to='/contact'>Contact</NavLink></li>
+                        <li><NavLink to='/'>
+                            <Button appearance="primary">Home</Button>
+                        </NavLink></li>
+                        <li><NavLink to='/about'> <Button appearance="primary">About</Button>
+                        </NavLink></li>
+                        <li><NavLink to='/contact'> <Button appearance="primary">Contact</Button>
+                        </NavLink></li>
                     </ul>
                 </nav>
             </header>
