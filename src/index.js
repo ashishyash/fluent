@@ -3,20 +3,17 @@ import ReactDOM from 'react-dom/client';
 import './assets/reset.scss';
 import './index.scss';
 import reportWebVitals from './reportWebVitals';
-import { FluentProvider , webDarkTheme} from '@fluentui/react-components';
 import { RouterProvider } from 'react-router-dom';
 import AppRouter from './common/appRouter';
-
-const customDarkTheme = {
-...webDarkTheme,
-fontFamilyBase: '"Roboto", sans-serif'
-}
+import { Provider } from 'react-redux';
+import store from './utils/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
-  <FluentProvider theme={customDarkTheme}>
-    <RouterProvider router={AppRouter}/>
-  </FluentProvider>
+  <Provider store={store}>
+      <RouterProvider router={AppRouter} />
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

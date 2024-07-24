@@ -1,11 +1,14 @@
 import useFetch from "../../utils/useFetch"
 import useInnerHtml from "../../utils/useInnerHtml";
-
+import {Text} from '@fluentui/react-components'
+import './about.scss';
+import { apiUrls, baseUrlBackend } from "../../utils/constant";
 const About = () => {
-  const aboutData = useFetch('https://marketplace.bnymellon.com/public/mp/prod/enAboutUsCms.json');
+  const aboutData = useFetch(`${baseUrlBackend}${apiUrls.about}`);
   const aboutHtml = useInnerHtml(aboutData?.block?.text);
   return (
-    <div>{aboutHtml}</div>
+    <div>
+      <Text> {aboutHtml}</Text></div>
   )
 }
 
