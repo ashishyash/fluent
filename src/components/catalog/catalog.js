@@ -1,4 +1,11 @@
 const Catalog = () => {
+    return (
+        <>
+        <div>
+            this is catalog page 
+        </div>
+        </>
+    )
 
 }
 

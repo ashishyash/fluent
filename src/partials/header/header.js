@@ -1,10 +1,7 @@
-import { Toolbar } from "@fluentui/react-components";
 import { NavLink } from "react-router-dom";
-import { Avatar } from "@fluentui/react-components";
 import { PeopleTeamRegular } from "@fluentui/react-icons";
 import { Button } from '@fluentui/react-components';
-import { makeStyles,  tokens } from "@fluentui/react-components";
-import { Switch } from "@fluentui/react-components";
+import { makeStyles,  tokens, Switch, Avatar, Toolbar } from "@fluentui/react-components";
 import './header.scss';
 import { useDispatch, useSelector } from "react-redux";
 import { updateTheme } from "../../utils/themeSlice";
@@ -50,7 +47,10 @@ const Header = () => {
                         </NavLink></li>
                         <li><NavLink to='/contact'> <Button appearance="primary">Contact</Button>
                         </NavLink></li>
+                        <li><NavLink to='/catalog'> <Button appearance="primary">Catalog</Button>
+                        </NavLink></li>
                         <li>
+                            
                         <Switch onChange={changeTheme} label={currentTheme.theme}  />
                         </li>
                     </ul>
@@ -59,5 +59,4 @@ const Header = () => {
         </Toolbar>
     )
 }
-
 export default Header;

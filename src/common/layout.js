@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 const useClasses = makeStyles({
   mainWrapper: {
       padding: tokens.spacingHorizontalXL,
-      minHeight: 'calc(100vh - 60px)',
+      minHeight: 'calc(100vh - 142px)',
       maxWidth: '1200px',
       margin: '0 auto',
       backgroundColor: tokens.colorBrandBackground2Hover
