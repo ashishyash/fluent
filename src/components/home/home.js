@@ -2,11 +2,8 @@ import useFetch from "../../utils/useFetch";
 import { Title3,  tokens, makeStyles, typographyStyles, mergeClasses } from "@fluentui/react-components";
 import { FontSizes } from '@fluentui/theme';
 import AppCard from "../../partials/appcard/appcard";
-import { baseUrlUI, baseUrlBackend , apiUrls} from "../../utils/constant";
-import { useDispatch } from "react-redux";
-import { updateApps } from "../../utils/appSlice";
-import { updateApis } from "../../utils/apiSlice";
-import { useEffect } from "react";
+import { baseUrlUI , apiUrls} from "../../utils/constant";
+import { useSelector } from "react-redux";
 const useClasses = makeStyles({
   text: typographyStyles.largeTitle,
   customFont: {
@@ -15,14 +12,10 @@ const useClasses = makeStyles({
 })
 const Home = () => {
   const marketplaceData = useFetch(`${baseUrlUI}${apiUrls.marketplaceData}`);
-  const allApis = useFetch(`${baseUrlBackend}${apiUrls.allApis}`);
-  const allApps = useFetch(`${baseUrlBackend}${apiUrls.allApps}`);
-  const dispatch = useDispatch();
-  useEffect(() => {
-     dispatch(updateApps(allApps?.data?.apps));
-     dispatch(updateApis(allApis?.data?.apis));
-  }, [allApis, allApps, dispatch]);
+  const {apis} = useSelector((state)=> state.apis) ;
+  const {apps} = useSelector((state)=> state.apps) ;
   const classes = useClasses();
+  console.log('home rendered');
   return (
     <>
     <h1 className={mergeClasses(classes.text, classes.customFont)}>Marketplace</h1>
@@ -39,10 +32,10 @@ const Home = () => {
       <div>
       </div>
       <div className="card-wrapper" style={{marginTop: tokens.spacingVerticalXL}}>
-        {allApps?.data.apps?.map((data) => <AppCard key={data.id} info={data} type={'apps'}/>)}
+        {apps?.map((data) => <AppCard key={data.id} info={data} type={'apps'}/>)}
       </div>
       <div className="card-wrapper" style={{marginTop: tokens.spacingVerticalXL}}>
-        {allApis?.data?.apis?.map((data) => <AppCard key={data.id} info={data} type={'apis'} />)}
+        {apis?.map((data) => <AppCard key={data.id} info={data} type={'apis'} />)}
       </div>
     </>
 
