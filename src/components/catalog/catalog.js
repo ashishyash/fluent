@@ -12,7 +12,6 @@ const Catalog = () => {
    const [searchText, setSearchText] = useState('');
     const handleTextChange = (text) => {
        setSearchText(text);
-       console.log(searchText);
     }
    
     return (
