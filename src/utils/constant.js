@@ -5,7 +5,9 @@ export const apiUrls = {
     allApis: 'externalapi.json',
     gettingStarted: 'enSupportGettingStarted.json',
     support: 'support.json',
-    contact: 'enSupportContacts.json'
+    contact: 'enSupportContacts.json',
+    caseStudy: 'externalcasestudy.json',
+    solutionSet:'externalsolutionset.json'
 }
 
 export const baseUrlUI = 'https://marketplace.bnymellon.com/app/';

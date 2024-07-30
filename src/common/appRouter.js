@@ -1,28 +1,33 @@
 import { createBrowserRouter } from "react-router-dom";
-import Layout from "./layout";
-import Home from "../components/home/home";
-import About from "../components/about/about";
-import Contact from "../components/contact/contact";
-import Catalog from "../components/catalog/catalog";
-import ApiDetail from "../components/api-detail/api-detail";
+import { lazy , Suspense} from "react";
+// import Layout from "./layout";
+
+
+const About = lazy(() => import('../components/about/about'));
+const Contact = lazy(() => import('../components/contact/contact'));
+const Catalog = lazy(() => import('../components/catalog/catalog'));
+const Home = lazy(()=> import('../components/home/home'));
+const Layout = lazy(() => import('../common/layout'));
+const ApiDetail = lazy(() => import('../components/api-detail/api-detail'));
+
 const AppRouter = createBrowserRouter([
     {
-        path: '/', element: <Layout />,
+        path: '/', element: <Suspense fallback={'loading'}><Layout /></Suspense>,
         children: [
             {
-                path: '/', element: <Home/>
+                path: '/', element: <Suspense fallback={'loading'}><Home/></Suspense>
             },
             {
-                path: '/about', element: <About />
+                path: '/about', element: <Suspense fallback={'loading'}><About /> </Suspense> 
             },
             {
-                path: '/contact', element: <Contact/>
+                path: '/contact', element: <Suspense fallback={'loading'}><Contact/></Suspense>
             },
             {
-                path: '/catalog', element: <Catalog/>
+                path: '/catalog', element: <Suspense fallback={'loading'}><Catalog/></Suspense>
             },
             {
-                path: 'apidetail/:type/:id' , element: <ApiDetail/>
+                path: '/apidetail/:type/:id' , element: <Suspense fallback={'loading'}><ApiDetail/></Suspense>
             }
         ]
     }

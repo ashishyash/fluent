@@ -10,7 +10,7 @@ const AppCard = (props) => {
                 <CardHeader header={<Title2>{props.info.sortingDisplayName}</Title2>} />
                 <div style={{ lineHeight: tokens.lineHeightBase500 }}>{description}</div>
                 <CardFooter>
-                    <Link to={`apidetail/${props.type}/${props.info.internalName.replace(/\s/g, '')}`} ><Button shape="circular" appearance="primary">Learn More</Button></Link>
+                    <Link to={`/apidetail/${props.type}/${props.info.internalName.replace(/\s/g, '')}`} ><Button shape="circular" appearance="primary">Learn More</Button></Link>
                     <Button shape="circular" appearance="primary">Documentation</Button>
                 </CardFooter>
             </Card>

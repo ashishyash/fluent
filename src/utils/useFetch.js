@@ -9,7 +9,7 @@ const useFetch = (url) => {
     useEffect(() => {
         fetchData();
         // eslint-disable-next-line
-    }, []);
+    }, [url]);
 
     return apiData;
 }

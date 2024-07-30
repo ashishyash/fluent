@@ -7,7 +7,8 @@ import { useSelector } from "react-redux";
 const useClasses = makeStyles({
   text: typographyStyles.largeTitle,
   customFont: {
-    fontFamily: '"Playwrite FR Moderne", cursive'
+    fontFamily: '"Playwrite FR Moderne", cursive',
+    marginBottom: tokens.spacingVerticalL
   }
 })
 const Home = () => {
@@ -15,7 +16,6 @@ const Home = () => {
   const {apis} = useSelector((state)=> state.apis) ;
   const {apps} = useSelector((state)=> state.apps) ;
   const classes = useClasses();
-  console.log('home rendered');
   return (
     <>
     <h1 className={mergeClasses(classes.text, classes.customFont)}>Marketplace</h1>
